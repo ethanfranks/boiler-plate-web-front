@@ -31,22 +31,7 @@ export async function register(email: string, password: string) {
     });
 }
 
-export async function login(email: string, password: string) {
-  let user = {} as User;
-
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      user = userCredential.user;
-      console.log(`User logged in successfully!`);
-    })
-    .catch((error) => {
-      console.log(`${error.message}`);
-    });
-
-  return user;
-}
-
-export async function logout() {
-  await auth.signOut();
-  console.log(`User logged out.`);
-}
+// export async function logout() {
+//   await auth.signOut();
+//   console.log(`User logged out.`);
+// }

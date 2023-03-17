@@ -1,4 +1,4 @@
-import { AuthProvider } from "@/components/AuthProvider/AuthProvider";
+import { AuthProvider } from "@/components/AuthProvider";
 import "@/styles/globals.css";
 import darkTheme from "@/styles/themes/darkTheme";
 import lightTheme from "@/styles/themes/lightTheme";
