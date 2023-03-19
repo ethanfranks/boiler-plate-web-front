@@ -6,25 +6,33 @@ import {
   ListItemText,
 } from '@mui/material';
 import { useRouter } from 'next/router';
-import { useAuth } from '../AuthProvider';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+
+const navContentsArr = [
+  {
+    icon: <DashboardIcon />,
+    text: 'Dashboard',
+  },
+];
 
 const NavContents = () => {
   const router = useRouter();
-  const { currentUser } = useAuth();
 
   return (
     <nav aria-label='main navigation'>
       <List>
-        <ListItem>
-          <ListItemButton
-            onClick={() => {
-              router.push('/dashboard');
-            }}
-          >
-            <ListItemIcon></ListItemIcon>
-            <ListItemText primary='Dashboard' />
-          </ListItemButton>
-        </ListItem>
+        {navContentsArr.map((item) => (
+          <ListItem key={item.text}>
+            <ListItemButton
+              onClick={() => {
+                router.push(`/${item.text.toLowerCase()}`);
+              }}
+            >
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <ListItemText primary='Dashboard' />
+            </ListItemButton>
+          </ListItem>
+        ))}
       </List>
     </nav>
   );
